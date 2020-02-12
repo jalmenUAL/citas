@@ -15,7 +15,7 @@ public class Dar_de_Alta_Cita extends Dar_de_Alta_Cita_Ventana {
 
 		Inicializar();
 		
-        /*
+        
 		darDeAltaCita.addClickListener(new Button.ClickListener() {
 		     
 
@@ -23,12 +23,12 @@ public class Dar_de_Alta_Cita extends Dar_de_Alta_Cita_Ventana {
 			public void buttonClick(ClickEvent event) {
 				darDeAltaCita();
 				 
-				pcl.setData(pcl.adm.Cargar_Clientes());
-				pas.setData(pcl.adm.Cargar_Asuntos());
-				
+				pcl.getComboCliente().setItems(pcl.adm.Cargar_Clientes());
+				pas.getComboAsunto().setItems(pcl.adm.Cargar_Asuntos());
+				 
 			}
 
-		});*/
+		});
 
 	};
 
@@ -39,11 +39,9 @@ public class Dar_de_Alta_Cita extends Dar_de_Alta_Cita_Ventana {
 				adm.Crear_Cita_Asunto_Cliente_Nuevos(pf.selectorFecha.getValue(), pas.nuevoNombreAsunto.getValue(),
 						pcl.nuevoNombreCliente.getValue(), pcl.nuevaDireccionCliente.getValue(),
 						pcl.nuevoTelefonoCliente.getValue());
-				pas.nuevoAsuntoLayout.setVisible(false);
+				pas.nuevoNombreAsunto.setVisible(false);
 				pas.asunto = false;
-				pcl.nombreLayout.setVisible(false);
-				pcl.telefonoLayout.setVisible(false);
-				pcl.direccionLayout.setVisible(false);
+				pcl.nuevoClienteLayout.setVisible(false);
 				pcl.cliente = false;
 
 			} else {
@@ -53,9 +51,7 @@ public class Dar_de_Alta_Cita extends Dar_de_Alta_Cita_Ventana {
 				adm.Crear_Cita_Nuevo_Cliente(pf.selectorFecha.getValue(), pcl.nuevoNombreCliente.getValue(),
 						pcl.nuevaDireccionCliente.getValue(), pcl.nuevoTelefonoCliente.getValue(), asunto.getORMID());
 
-				pcl.nombreLayout.setVisible(false);
-				pcl.telefonoLayout.setVisible(false);
-				pcl.direccionLayout.setVisible(false);
+				pcl.nuevoClienteLayout.setVisible(false);
 				pcl.cliente = false;
 			}
 		} else {

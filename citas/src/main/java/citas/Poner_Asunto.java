@@ -16,28 +16,24 @@ public class Poner_Asunto extends Poner_Asunto_Ventana {
 	public Poner_Asunto() {
 
 		Inicializar();
-
-		/*
 		nuevoAsunto.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-
 				nuevoAsunto();
-
 			}
-		});*/
+		});
 	}
 	
 	void Inicializar(){
-		nuevoAsuntoLayout.setVisible(false);
-
+		ComboBox<Asunto> combo = getComboAsunto();
+		nuevoNombreAsunto.setVisible(false);
+		combo.setItemCaptionGenerator(Asunto::getNombre);
+		combo.setItems(as);
+		
 		 
-
-		getComboAsunto().setData(as);
-		getComboAsunto().setCaption("nombre");
 	}
 
 	void nuevoAsunto() {
-		nuevoAsuntoLayout.setVisible(true);
+		nuevoNombreAsunto.setVisible(true);
 		asunto = true;
 	}
 

@@ -6,35 +6,16 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-vertical-layout caption-as-html size-auto>
-   <vaadin-horizontal-layout width="382px" height="63px">
-    <vaadin-label caption="
-" width="163px" plain-text _id="ponerCliente">
-      Poner Cliente 
-    </vaadin-label>
-    <vaadin-combo-box width="191px" item-caption-mode="id" _id="comboCliente"></vaadin-combo-box>
-   </vaadin-horizontal-layout>
+  <vaadin-vertical-layout caption-as-html spacing="false" margin="false">
+   <vaadin-combo-box caption="Poner Cliente" width-full item-caption-mode="id" _id="comboCliente"></vaadin-combo-box>
    <vaadin-button style-name="link" plain-text _id="nuevoCliente">
      Nuevo Cliente 
    </vaadin-button>
-   <vaadin-horizontal-layout width="382px" _id="nombreLayout">
-    <vaadin-label plain-text _id="labelNombre">
-      Nombre 
-    </vaadin-label>
-    <vaadin-text-field width="191px" value="Introduzca Nombre" _id="nuevoNombreCliente"></vaadin-text-field>
-   </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout width="379px" _id="direccionLayout">
-    <vaadin-label plain-text _id="labelDireccion">
-      Dirección 
-    </vaadin-label>
-    <vaadin-text-field width="193px" value="Introduzca Dirección" _id="nuevaDireccionCliente"></vaadin-text-field>
-   </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout width="382px" _id="telefonoLayout">
-    <vaadin-label plain-text _id="labelTelefono">
-      Teléfono 
-    </vaadin-label>
-    <vaadin-text-field width="191px" value="Introduzca Teléfono" _id="nuevoTelefonoCliente"></vaadin-text-field>
-   </vaadin-horizontal-layout>
+   <vaadin-form-layout size-full margin="false" _id="nuevoClienteLayout">
+    <vaadin-text-field caption="Nombre" width-full value="Introduzca Nombre" _id="nuevoNombreCliente"></vaadin-text-field>
+    <vaadin-text-field caption="Dirección" width-full value="Introduzca Dirección" _id="nuevaDireccionCliente"></vaadin-text-field>
+    <vaadin-text-field caption="Teléfono" width-full value="Introduzca Teléfono" _id="nuevoTelefonoCliente"></vaadin-text-field>
+   </vaadin-form-layout>
   </vaadin-vertical-layout>
  </body>
 </html>

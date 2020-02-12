@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Grid;
 import com.vaadin.ui.Grid.SelectionMode;
 import com.vaadin.ui.Notification;
 
@@ -18,29 +19,12 @@ public class Ver_Citas extends Ver_Citas_Ventana {
 		Inicializar();
 		citas.addComponent(vinfo);
 		vinfo.setVisible(false);
-		//tablaDeCitasPendientes.setSelectionMode(SelectionMode.SINGLE);
-		/*tablaDeCitasPendientes.addColumn("Id");
-		tablaDeCitasPendientes.addColumn("cliente");
-		tablaDeCitasPendientes.addColumn("asunto");
-		tablaDeCitasPendientes.addColumn("Día");
-		tablaDeCitasPendientes.addColumn("Mes");
-		tablaDeCitasPendientes.addColumn("Año");
-		tablaDeCitasRealizadas.setSelectionMode(SelectionMode.SINGLE);
-		tablaDeCitasRealizadas.addColumn("Id");
-		tablaDeCitasRealizadas.addColumn("cliente");
-		tablaDeCitasRealizadas.addColumn("asunto");
-		tablaDeCitasRealizadas.addColumn("Día");
-		tablaDeCitasRealizadas.addColumn("Mes");
-		tablaDeCitasRealizadas.addColumn("Año");*/
-
 		Cargar_Citas();
-
-		/*verInformacionDeCliente.addClickListener(new Button.ClickListener() {
+		verInformacionDeCliente.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-
 				verInformacionDeCliente();
 			}
-		});*/
+		});
 	}
 	
 	void Inicializar(){
@@ -55,18 +39,14 @@ public class Ver_Citas extends Ver_Citas_Ventana {
 
 		{
 			vinfo.setVisible(true);
-			Optional<CitaActiva> item = tablaDeCitasPendientes.getSelectionModel().getFirstSelectedItem();
-			
-			item.ifPresent(cita -> {
-				
-				Integer id = cita.getCitaid();
-				
+			Optional<Cita_Activa> item = tablaDeCitasPendientes.getSelectionModel().getFirstSelectedItem();		
+			item.ifPresent(cita -> {			
+				Integer id = cita.getID();
 				Cliente cli = adm.Cargar_Informacion_Cliente(id);
 				vinfo.verNombre.setValue(cli.getNombre());
 				vinfo.verDireccion.setValue(cli.getDireccion());
 				vinfo.verTelefono.setValue(cli.getTelefono());
 				tablaDeCitasPendientes.getSelectionModel().deselectAll();
-			
 			});
 
 			
@@ -97,27 +77,33 @@ public class Ver_Citas extends Ver_Citas_Ventana {
 		}
 
 	}
+	
+	public Grid<Cita_Activa> getCitasPendientes()
+	{
+		return tablaDeCitasPendientes;
+	}
+	
+	public Grid<Cita_Realizada> getCitasRealizadas()
+	{
+		return tablaDeCitasRealizadas;
+	} 
 
 	public void Cargar_Citas() {
 		
 		List<Cita_Activa> ca = adm.Cargar_Citas_Pendientes();
-
-		tablaDeCitasPendientes.setData(ca);
-
-		/*for (Cita_Activa l : ca) {
-			tablaDeCitasPendientes.addRow(Integer.toString(l.getORMID()), l.getCliente().getNombre(), l.getEs_para().getNombre(),
-					Integer.toString(l.getFecha().getDia()), Integer.toString(l.getFecha().getMes() + 1),
-					Integer.toString(l.getFecha().getAnyo()));
-		}*/
+		getCitasPendientes().setItems(ca);
+		getCitasPendientes().addColumn(Cita_Activa->Cita_Activa.getCliente().getNombre()).setCaption("Ciente");
+		getCitasPendientes().addColumn(Cita_Activa->Cita_Activa.getFecha().getDia()).setCaption("Día");;
+		getCitasPendientes().addColumn(Cita_Activa->Cita_Activa.getFecha().getMes()).setCaption("Mes");;
+		getCitasPendientes().addColumn(Cita_Activa->Cita_Activa.getFecha().getAnyo()).setCaption("Año");;
+		getCitasPendientes().addColumn(Cita_Activa->Cita_Activa.getEs_para().getNombre()).setCaption("Asunto");;
 		
 		List<Cita_Realizada> cr = adm.Cargar_Citas_Realizadas();
-
-		tablaDeCitasRealizadas.setData(ca);
-
-	    /*	for (Cita_Realizada l : cr) {
-			tablaDeCitasRealizadas.addRow(Integer.toString(l.getORMID()), l.getCliente().getNombre(),
-					l.getEs_para().getNombre(), Integer.toString(l.getFecha().getDia()),
-					Integer.toString(l.getFecha().getMes()), Integer.toString(l.getFecha().getAnyo()));
-		}*/
+		getCitasRealizadas().setItems(cr);
+		getCitasRealizadas().addColumn(Cita_Realizada->Cita_Realizada.getCliente().getNombre()).setCaption("Cliente");;
+		getCitasRealizadas().addColumn(Cita_Realizada->Cita_Realizada.getFecha().getDia()).setCaption("Día");;
+		getCitasRealizadas().addColumn(Cita_Realizada->Cita_Realizada.getFecha().getMes()).setCaption("Mes");;
+		getCitasRealizadas().addColumn(Cita_Realizada->Cita_Realizada.getFecha().getAnyo()).setCaption("Añoo");;
+		getCitasRealizadas().addColumn(Cita_Realizada->Cita_Realizada.getEs_para().getNombre()).setCaption("Asunto");;
 	}
 }

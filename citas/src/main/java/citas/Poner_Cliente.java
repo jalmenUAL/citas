@@ -15,33 +15,25 @@ public class Poner_Cliente extends Poner_Cliente_Ventana {
 	 
 	public Poner_Cliente() {
 
-		Inicializar();
-
-		/*
+		Inicializar();	
 		nuevoCliente.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
-
 				nuevoCliente();
 			}
-		});*/
+		});
 
 	}
 	
 	void Inicializar(){
-		nombreLayout.setVisible(false);
-		telefonoLayout.setVisible(false);
-		direccionLayout.setVisible(false);
-
-		comboCliente.setData(cl);
-
-		
-		comboCliente.setCaption("nombre");
+		ComboBox<Cliente> combo = getComboCliente();
+		nuevoClienteLayout.setVisible(false);
+		combo.setItemCaptionGenerator(Cliente::getNombre);
+		combo.setItems(cl);		
+		 
 	}
 
 	void nuevoCliente() {
-		nombreLayout.setVisible(true);
-		telefonoLayout.setVisible(true);
-		direccionLayout.setVisible(true);
+		nuevoClienteLayout.setVisible(true);
 		cliente = true;
 	}
 

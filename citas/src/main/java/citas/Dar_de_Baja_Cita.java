@@ -19,7 +19,7 @@ public class Dar_de_Baja_Cita extends Ver_Citas {
 		super();
 		setCaption("Dar de Baja a Cita");
 		Inicializar();
-		/*darDeBajaCita.addClickListener(new Button.ClickListener() {
+		darDeBajaCita.addClickListener(new Button.ClickListener() {
 		     
 
 			 
@@ -29,7 +29,7 @@ public class Dar_de_Baja_Cita extends Ver_Citas {
 				// TODO Auto-generated method stub
 				darDeBajaCita();
 			}
-		});*/
+		});
 	}
 
 	void Inicializar(){
@@ -39,9 +39,9 @@ public class Dar_de_Baja_Cita extends Ver_Citas {
 	void darDeBajaCita() {
 		if (tablaDeCitasPendientes.getSelectedItems().size() > 0) {
 
-			Optional<CitaActiva> item = tablaDeCitasPendientes.asSingleSelect().getSelectedItem();
+			Optional<Cita_Activa> item = tablaDeCitasPendientes.asSingleSelect().getSelectedItem();
 			item.ifPresent(cita -> {
-			Integer id = cita.getCitaid();
+			Integer id = cita.getID();
 
 			adm.Baja_Cita_Activa(id);
 			});

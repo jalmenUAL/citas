@@ -56,12 +56,12 @@ public class Actualizar_Citas extends Ver_Citas {
 	void RealizarCita() {
 		
 		if (tablaDeCitasPendientes.getSelectedItems().size() > 0) {
-        Optional<CitaActiva> item = 
+        Optional<Cita_Activa> item = 
         	tablaDeCitasPendientes.getSelectionModel().getFirstSelectedItem();
 			
 			item.ifPresent(cita -> {
 				Integer id;
-				id = cita.getCitaid();
+				id = cita.getID();
 			usu.Cita_Realizada(id);
 			Cargar_Citas();
 			});
@@ -84,12 +84,12 @@ public class Actualizar_Citas extends Ver_Citas {
 	
 	void cambiarFecha() {
 		 
-	        Optional<CitaActiva> item = 
+	        Optional<Cita_Activa> item = 
 	        	tablaDeCitasPendientes.getSelectionModel().getFirstSelectedItem();
 				
 				item.ifPresent(cita -> {
 					Integer id;
-					id = cita.getCitaid();
+					id = cita.getID();
 		            usu.Cita_Pospuesta(id,fechaPospuesta.getValue());
 		            Cargar_Citas();
 		            fechaPospuesta.setVisible(false);

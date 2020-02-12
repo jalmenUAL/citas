@@ -15,19 +15,19 @@ public class Gestionar_Citas extends Gestionar_Citas_Ventana {
 
 		Inicializar();
 
-		/*darDeAltaCitas.addClickListener(new Button.ClickListener() {
+		darDeAltaCitas.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 
 				darDeAltaCitas();
 
 			}
-		});*/
-		/*darDeBajaCitas.addClickListener(new Button.ClickListener() {
+		});
+		darDeBajaCitas.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 
 				darDeBajaCitas();
 			}
-		});*/
+		});
 
 	}
 

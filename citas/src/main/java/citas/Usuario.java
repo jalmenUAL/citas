@@ -27,7 +27,7 @@ public class Usuario extends UI {
 	@Override
 	protected void init(VaadinRequest vaadinRequest) {
 
-		setContent(new Ver_Citas());
+		setContent(new Actualizar_Citas());
 
 	}
 
