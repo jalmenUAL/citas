@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;GENERATE_GETTERS&quot;:false,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
   <meta name="vaadin-version" content="8.1.5">
+  <meta name="package-mapping" content="citas:citas">
  </head>
  <body>
   <vaadin-panel icon="fonticon://FontAwesome/f06e" caption="Ver Citas" size-full>
    <vaadin-vertical-layout _id="citas">
     <vaadin-vertical-layout size-full _id="listacitas">
      <vaadin-vertical-layout size-full _id="tablascitas">
-      <vaadin-grid caption-as-html caption="Citas Pendientes" size-full _id="tablaDeCitasPendientes"></vaadin-grid>
+      <vaadin-grid caption="Citas Pendientes" size-full _id="tablaDeCitasPendientes"></vaadin-grid>
       <vaadin-grid caption="Citas Realizadas" size-full _id="tablaDeCitasRealizadas"></vaadin-grid>
       <vaadin-button style-name="link" plain-text _id="verInformacionDeCliente">
         Ver Información del Cliente 
@@ -24,7 +25,7 @@
        <vaadin-button style-name="primary" plain-text _id="PosponerCita">
          Posponer Cita 
        </vaadin-button>
-       <vaadin-date-field _id="fechaPospuesta"></vaadin-date-field>
+       <vaadin-inline-date-field _id="fechaPospuesta"></vaadin-inline-date-field>
       </vaadin-horizontal-layout>
       <vaadin-button style-name="primary" plain-text _id="cambiarFecha">
         Cambiar Fecha 

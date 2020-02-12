@@ -22,7 +22,7 @@ public class Ver_Informacion_de_Cliente_Ventana extends FormLayout {
 	protected TextField verNombre;
 	protected TextField verDireccion;
 	protected TextField verTelefono;
-	protected Button cerrar;
+	protected Button cerrar2;
 
 	public Ver_Informacion_de_Cliente_Ventana() {
 		Design.read(this);

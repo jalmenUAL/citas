@@ -15,8 +15,8 @@ public class Dar_de_Alta_Cita extends Dar_de_Alta_Cita_Ventana {
 
 		Inicializar();
 		
-        
-		/*darDeAltaCita.addClickListener(new Button.ClickListener() {
+        /*
+		darDeAltaCita.addClickListener(new Button.ClickListener() {
 		     
 
 			@Override

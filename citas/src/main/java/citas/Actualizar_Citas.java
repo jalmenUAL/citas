@@ -4,8 +4,10 @@ import java.util.List;
 import java.util.Optional;
 
 import com.vaadin.ui.Button;
-import com.vaadin.ui.Notification;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Notification;
+
+ 
 
 public class Actualizar_Citas extends Ver_Citas {
 
@@ -20,8 +22,13 @@ public class Actualizar_Citas extends Ver_Citas {
 		Inicializar();
 
 		RealizarCita.addClickListener(new Button.ClickListener() {
+			 
+
+			@Override
 			public void buttonClick(ClickEvent event) {
+				// TODO Auto-generated method stub
 				RealizarCita();
+				
 			}
 		});
 
