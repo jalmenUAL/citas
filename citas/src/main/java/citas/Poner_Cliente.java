@@ -2,7 +2,6 @@ package citas;
 
 import java.util.List;
 
- 
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.ComboBox;
@@ -12,10 +11,9 @@ public class Poner_Cliente extends Poner_Cliente_Ventana {
 	iAdministrador adm = new Bd_Principal();
 	List<Cliente> cl = adm.Cargar_Clientes();
 
-	 
 	public Poner_Cliente() {
 
-		Inicializar();	
+		Inicializar();
 		nuevoCliente.addClickListener(new Button.ClickListener() {
 			public void buttonClick(ClickEvent event) {
 				nuevoCliente();
@@ -23,13 +21,13 @@ public class Poner_Cliente extends Poner_Cliente_Ventana {
 		});
 
 	}
-	
-	void Inicializar(){
+
+	void Inicializar() {
 		ComboBox<Cliente> combo = getComboCliente();
 		nuevoClienteLayout.setVisible(false);
 		combo.setItemCaptionGenerator(Cliente::getNombre);
-		combo.setItems(cl);		
-		 
+		combo.setItems(cl);
+
 	}
 
 	void nuevoCliente() {

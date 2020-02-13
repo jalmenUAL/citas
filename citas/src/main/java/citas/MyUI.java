@@ -11,6 +11,7 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import com.vaadin.ui.Button.ClickEvent;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -24,20 +25,21 @@ public class MyUI extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-        final VerticalLayout layout = new VerticalLayout();
+         
         
-        final TextField name = new TextField();
-        name.setCaption("Type your name here:");
-
-        Button button = new Button("Click Me");
-        button.addClickListener(e -> {
-            layout.addComponent(new Label("Thanks " + name.getValue() 
-                    + ", it works!"));
-        });
+        Login l = new Login();
         
-        layout.addComponents(name, button);
+        l.entrar.addClickListener(new Button.ClickListener() {
+			public void buttonClick(ClickEvent event) {
+				if (l.getLogin().equals("usuario"))
+				{setContent(new Usuario());}
+				else {setContent(new Administrador());}
+			}
+		});
         
-        setContent(layout);
+         
+        
+        setContent(l);
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)

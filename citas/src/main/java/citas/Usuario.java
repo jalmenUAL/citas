@@ -1,15 +1,6 @@
 package citas;
 
-import javax.servlet.annotation.WebServlet;
-
-import com.vaadin.annotations.Theme;
-import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
-import com.vaadin.server.VaadinServlet;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.TextField;
-import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 
 /**
@@ -21,18 +12,15 @@ import com.vaadin.ui.VerticalLayout;
  * intended to be overridden to add component to the user interface and
  * initialize non-component functionality.
  */
-@Theme("mytheme")
-public class Usuario extends UI {
+ 
+public class Usuario extends VerticalLayout {
 
-	@Override
-	protected void init(VaadinRequest vaadinRequest) {
+	
+	public Usuario () {
 
-		setContent(new Actualizar_Citas());
+		addComponent(new Actualizar_Citas());
 
 	}
 
-	@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
-	@VaadinServletConfiguration(ui = Usuario.class, productionMode = false)
-	public static class MyUIServlet extends VaadinServlet {
-	}
+	 
 }

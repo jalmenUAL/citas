@@ -10,19 +10,17 @@ public class Dar_de_Alta_Cita extends Dar_de_Alta_Cita_Ventana {
 	Poner_Asunto pas = new Poner_Asunto();
 	Poner_Fecha pf = new Poner_Fecha();
 
-	
 	public Dar_de_Alta_Cita() {
 
 		Inicializar();
-		
-        
+
 		darDeAltaCita.addClickListener(new Button.ClickListener() {
 			@Override
 			public void buttonClick(ClickEvent event) {
-				darDeAltaCita();		 
+				darDeAltaCita();
 				pcl.getComboCliente().setItems(pcl.adm.Cargar_Clientes());
 				pas.getComboAsunto().setItems(pcl.adm.Cargar_Asuntos());
-				 
+
 			}
 
 		});
@@ -42,7 +40,7 @@ public class Dar_de_Alta_Cita extends Dar_de_Alta_Cita_Ventana {
 				pcl.cliente = false;
 
 			} else {
-				Asunto asunto = pas.getComboAsunto().getValue();		 
+				Asunto asunto = pas.getComboAsunto().getValue();
 				adm.Crear_Cita_Nuevo_Cliente(pf.selectorFecha.getValue(), pcl.nuevoNombreCliente.getValue(),
 						pcl.nuevaDireccionCliente.getValue(), pcl.nuevoTelefonoCliente.getValue(), asunto.getORMID());
 
@@ -52,22 +50,21 @@ public class Dar_de_Alta_Cita extends Dar_de_Alta_Cita_Ventana {
 		} else {
 			if (pas.asunto) {
 
-				Cliente cliente = pcl.getComboCliente().getValue();			 
+				Cliente cliente = pcl.getComboCliente().getValue();
 				adm.Crear_Cita_Nuevo_Asunto(pf.selectorFecha.getValue(), pas.nuevoNombreAsunto.getValue(),
 						cliente.getORMID());
 				pas.asunto = false;
 			} else {
 				Asunto asunto = pas.getComboAsunto().getValue();
-				Cliente cliente = pcl.getComboCliente().getValue();			 
-				adm.Crear_Cita(pf.selectorFecha.getValue(), cliente.getORMID(), 
-						asunto.getORMID());
+				Cliente cliente = pcl.getComboCliente().getValue();
+				adm.Crear_Cita(pf.selectorFecha.getValue(), cliente.getORMID(), asunto.getORMID());
 
 			}
 		}
 
 	}
-	
-	void Inicializar(){
+
+	void Inicializar() {
 		ponerClienteLayout.addComponent(pcl);
 		ponerAsuntoLayout.addComponent(pas);
 		ponerFechaLayout.addComponent(pf);

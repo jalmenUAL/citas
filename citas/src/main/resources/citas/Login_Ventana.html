@@ -6,12 +6,14 @@
   <meta name="vaadin-version" content="8.1.5">
  </head>
  <body>
-  <vaadin-horizontal-layout width="376px">
-   <vaadin-label caption="
-" width="163px" plain-text _id="ponerFecha">
-     Poner Fecha 
-   </vaadin-label>
-   <vaadin-date-field _id="selectorFecha"></vaadin-date-field>
-  </vaadin-horizontal-layout>
+  <vaadin-vertical-layout size-full>
+   <vaadin-form-layout>
+    <vaadin-text-field caption="Login" _id="login"></vaadin-text-field>
+    <vaadin-password-field caption="Password" _id="password"></vaadin-password-field>
+    <vaadin-button style-name="primary" plain-text _id="entrar">
+      Entrar 
+    </vaadin-button>
+   </vaadin-form-layout>
+  </vaadin-vertical-layout>
  </body>
 </html>

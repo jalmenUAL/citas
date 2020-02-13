@@ -31,13 +31,14 @@ public class Gestionar_Citas extends Gestionar_Citas_Ventana {
 
 	}
 
-	void Inicializar(){
+	void Inicializar() {
 		addComponent(vc);
 		addComponent(da);
 		addComponent(db);
 		darDeAltaCitas = da.getDardeAltaCita();
 		darDeBajaCitas = db.getDardeBajaCita();
 	}
+
 	void darDeAltaCitas() {
 		vc.Cargar_Citas();
 		db.Cargar_Citas();

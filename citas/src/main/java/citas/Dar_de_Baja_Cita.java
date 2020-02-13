@@ -1,16 +1,12 @@
 package citas;
 
-import java.util.List;
 import java.util.Optional;
 
 import com.vaadin.ui.Button;
 import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Notification;
- 
 
 public class Dar_de_Baja_Cita extends Ver_Citas {
-
-	
 
 	iAdministrador adm = new Bd_Principal();
 
@@ -20,9 +16,6 @@ public class Dar_de_Baja_Cita extends Ver_Citas {
 		setCaption("Dar de Baja a Cita");
 		Inicializar();
 		darDeBajaCita.addClickListener(new Button.ClickListener() {
-		     
-
-			 
 
 			@Override
 			public void buttonClick(ClickEvent event) {
@@ -32,18 +25,19 @@ public class Dar_de_Baja_Cita extends Ver_Citas {
 		});
 	}
 
-	void Inicializar(){
+	void Inicializar() {
 		dardebajacitas.setVisible(true);
-	    actualizarcitas.setVisible(false);
+		actualizarcitas.setVisible(false);
 	}
+
 	void darDeBajaCita() {
 		if (tablaDeCitasPendientes.getSelectedItems().size() > 0) {
 
 			Optional<Cita_Activa> item = tablaDeCitasPendientes.asSingleSelect().getSelectedItem();
 			item.ifPresent(cita -> {
-			Integer id = cita.getID();
+				Integer id = cita.getID();
 
-			adm.Baja_Cita_Activa(id);
+				adm.Baja_Cita_Activa(id);
 			});
 
 		} else {

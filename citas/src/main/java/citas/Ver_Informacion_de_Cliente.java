@@ -1,23 +1,19 @@
 package citas;
 
- 
- 
-
 public class Ver_Informacion_de_Cliente extends Ver_Informacion_de_Cliente_Ventana {
 
 	public Ver_Informacion_de_Cliente() {
 		Inicializar();
-		
-        cerrar2.addClickListener(event -> cerrar());
 
-         
+		cerrar2.addClickListener(event -> cerrar());
 
-		 
 	}
-	void Inicializar(){
+
+	void Inicializar() {
 		setVisible(false);
 	}
-	void cerrar(){
+
+	void cerrar() {
 		setVisible(false);
 	}
 }
