@@ -55,11 +55,11 @@ public class Ver_Citas extends Ver_Citas_Ventana {
 
 		{
 			vinfo.setVisible(true);
-			Optional<CitaActiva> item = tablaDeCitasPendientes.getSelectionModel().getFirstSelectedItem();
+			Optional<Cita_Activa> item = tablaDeCitasPendientes.getSelectionModel().getFirstSelectedItem();
 			
 			item.ifPresent(cita -> {
 				Integer id;
-				id = cita.getCitaid();
+				id = cita.getID();
 				
 				Cliente cli = adm.Cargar_Informacion_Cliente(id);
 				vinfo.verNombre.setValue(cli.getNombre());
@@ -91,6 +91,7 @@ public class Ver_Citas extends Ver_Citas_Ventana {
 	public void Cargar_Citas() {
 		
 		List<Cita_Activa> ca = adm.Cargar_Citas_Pendientes();
+		getCitasPendientes().removeAllColumns();
 		getCitasPendientes().setItems(ca);
 		getCitasPendientes().addColumn(Cita_Activa->Cita_Activa.getCliente().getNombre()).setCaption("Ciente");
 		getCitasPendientes().addColumn(Cita_Activa->Cita_Activa.getFecha().getDia()).setCaption("Día");;
@@ -99,6 +100,7 @@ public class Ver_Citas extends Ver_Citas_Ventana {
 		getCitasPendientes().addColumn(Cita_Activa->Cita_Activa.getEs_para().getNombre()).setCaption("Asunto");;
 		
 		List<Cita_Realizada> cr = adm.Cargar_Citas_Realizadas();
+		getCitasRealizadas().removeAllColumns();
 		getCitasRealizadas().setItems(cr);
 		getCitasRealizadas().addColumn(Cita_Realizada->Cita_Realizada.getCliente().getNombre()).setCaption("Cliente");;
 		getCitasRealizadas().addColumn(Cita_Realizada->Cita_Realizada.getFecha().getDia()).setCaption("Día");;
